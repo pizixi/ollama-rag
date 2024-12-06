@@ -57,7 +57,7 @@ func getOllamaMistral() *ollama.LLM {
 func getOllamaLlama2() *ollama.LLM {
 	// 创建一个新的ollama模型，模型名为"llama2-chinese:13b"
 	llm, err := ollama.New(
-		ollama.WithModel("llama2-chinese:13b"),
+		ollama.WithModel("mistral"),
 		ollama.WithServerURL(ollamaServer))
 	if err != nil {
 		logger.Fatal("创建ollama模型失败: %v", err)

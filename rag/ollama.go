@@ -105,7 +105,8 @@ func useRetriaver(store *qdrant.Store, prompt string, topk int) ([]schema.Docume
 		vectorstores.WithScoreThreshold(0.80), // 设置分数阈值
 	}
 
-	// 创建检索器
+	// 创建检索器 
+	// topk指定返回最相关向量的数量
 	retriever := vectorstores.ToRetriever(store, topk, optionsVector...)
 	// 搜索
 	docRetrieved, err := retriever.GetRelevantDocuments(context.Background(), prompt)

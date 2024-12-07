@@ -35,7 +35,15 @@ Flags:
   -t, --toggle   Help message for toggle
 ```
 
-
+# distance的主要功能是计算两个词(组)之间的距离(相似度)。程序将该功能表现为用户输入一条字符串，里面可以包含以空格分制的多个词，然后程序从训练出的模型(demo-word.shi训练出的模型文件名为vectors.bin，二进制文件)中与之最为相似的40个词并输出。
+ 
+ ```
+name: collection 名称
+vectors: 向量的配置
+size: 向量的维度
+distance: 向量的距离计算方式,Cosine(余弦距离), Euclidean(欧式距离),Dot product(点积)
+由于GPT的向量维度是惊人的1536个维度，所以在这里建collection的时候请填写size为1536
+```
 
 
 这里向量数据库使用的是 qdrant，可通过如下方式快速拉起测试环境。
@@ -54,7 +62,6 @@ $ curl -X PUT http://localhost:6333/collections/langchaingo-ollama-rag \
       "distance": "Dot"
     }
   }'
-
 ```
 
 使用如下命令可删除该集合：

@@ -28,7 +28,8 @@ var (
 func getollamaEmbedder() *embeddings.EmbedderImpl {
 	// 创建一个新的ollama模型，模型名为"nomic-embed-text:latest"
 	ollamaEmbedderModel, err := ollama.New(
-		ollama.WithModel("nomic-embed-text:latest"),
+		// ollama.WithModel("nomic-embed-text:latest"),
+		ollama.WithModel("chevalblanc/acge_text_embedding"),// 1024
 		ollama.WithServerURL(ollamaServer))
 	if err != nil {
 		logger.Fatal("创建ollama模型失败: %v", err)

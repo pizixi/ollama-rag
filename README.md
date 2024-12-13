@@ -14,6 +14,11 @@ $ llama pull llama2-chinese:13b
 $ go run main.go getanswer
 ```
 
+#### 优化方向
+ 1、优化 text_split 算法，使匹配出的结果作为上下文时能够提供更合理的推理/回答依据，采用人工分块，提升质量，节省token ☑   
+ 2、优化 设计理念，目前思路是问题和答案的向量化匹配，可以采用问题和问题向量化匹配并缓存，以此提升语义匹配效果 ☑   
+ 3、优化 embedding 模型，可以采用本地中文llm(TextToVec)，提升语义向量化的效果，使得语义匹配过程中能够匹配出最满足要求的文本段落作为上下文   
+ 4、优化 LLM 模型，可以使用GPT4接口，使得给定提问相同情况下，得到更理想的推理/回答结果   
 
 ```
 PS C:\api\langchaingo-ollama-rag> .\langchaingo-ollama-rag.exe -h
@@ -35,7 +40,7 @@ Flags:
   -t, --toggle   Help message for toggle
 ```
 
-# distance的主要功能是计算两个词(组)之间的距离(相似度)。程序将该功能表现为用户输入一条字符串，里面可以包含以空格分制的多个词，然后程序从训练出的模型(demo-word.shi训练出的模型文件名为vectors.bin，二进制文件)中与之最为相似的40个词并输出。
+### distance的主要功能是计算两个词(组)之间的距离(相似度)。程序将该功能表现为用户输入一条字符串，里面可以包含以空格分制的多个词，然后程序从训练出的模型(demo-word.shi训练出的模型文件名为vectors.bin，二进制文件)中与之最为相似的40个词并输出。
  
  ```
 name: collection 名称

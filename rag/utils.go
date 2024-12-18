@@ -20,6 +20,10 @@ func TextToChunks(dirFile string, chunkSize, chunkOverlap int) ([]schema.Documen
 	}
 	// 创建一个新的文本文档加载器
 	docLoaded := documentloaders.NewText(file)
+	// docLoaded := documentloaders.NewPDF(file)
+	// docLoaded := documentloaders.NewHTML(file)
+	// docLoaded := documentloaders.NewCSV(file)
+	
 	// 创建一个新的递归字符文本分割器
 	split := textsplitter.NewRecursiveCharacter()
 	// 设置块大小

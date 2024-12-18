@@ -26,6 +26,8 @@ func TextToChunks(dirFile string, chunkSize, chunkOverlap int) ([]schema.Documen
 	
 	// 创建一个新的递归字符文本分割器
 	split := textsplitter.NewRecursiveCharacter()
+	// 设置块分隔符
+	// split.Separators = []string{"\n"}
 	// 设置块大小
 	split.ChunkSize = chunkSize
 	// 设置块重叠大小

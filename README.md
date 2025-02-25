@@ -1,4 +1,14 @@
 
+```
+$ curl -X PUT http://localhost:6333/collections/langchaingo-ollama-rag \
+  -H 'Content-Type: application/json' \
+  --data-raw '{
+    "vectors": {
+      "size": 768,
+      "distance": "Dot"
+    }
+  }'
+```
 
 ```
 //先切分文档 

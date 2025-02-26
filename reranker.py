@@ -3,6 +3,8 @@ reranker = FlagReranker('BAAI/bge-reranker-v2-m3', use_fp16=True) # Setting use_
 
 # You can map the scores into 0-1 by set "normalize=True", which will apply sigmoid function to the score
 # 结果语义排序,再去大模型语义
+# pip install modelscope
+# modelscope download --model BAAI/bge-reranker-v2-m3
 scores = reranker.compute_score([
     ['我喜欢玩什么?', '我喜欢苹果'], 
     ['我喜欢玩什么?', '我喜欢桌子'], 
